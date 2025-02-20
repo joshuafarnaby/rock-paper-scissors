@@ -26,6 +26,59 @@ function getPlayerChoice() {
     }
 }
 
-let = playerChoice = getPlayerChoice()
+function playRound(playerChoice, computerChoice) {
+    let playerWinMessage = "Congratulations, Player! You win!";
+    let computerWinMessage = "Bad luck, Player! You lose";
 
-console.log(playerChoice)
+    if (playerChoice == computerChoice) {
+        console.log(`You chose ${playerChoice}!`)
+        console.log(`The computer chose ${computerChoice}!`)
+        console.log("It's a draw! Play again");
+    } else if (playerChoice == "rock" && computerChoice == "paper") {
+        computerScore++
+        console.log(`You chose ${playerChoice}!`)
+        console.log(`The computer chose ${computerChoice}!`)
+        console.log(computerWinMessage);
+        console.log(`The scores are: Player ${playerScore} - ${computerScore} Computer`)
+    } else if (playerChoice == "rock" && computerChoice == "scissors") {
+        playerScore++
+        console.log(`You chose ${playerChoice}!`)
+        console.log(`The computer chose ${computerChoice}!`)
+        console.log(playerWinMessage);
+        console.log(`The scores are: Player ${playerScore} - ${computerScore} Computer`)
+    } else if (playerChoice == "paper" && computerChoice == "rock") {
+        playerScore++
+        console.log(`You chose ${playerChoice}!`)
+        console.log(`The computer chose ${computerChoice}!`)
+        console.log(playerWinMessage);
+        console.log(`The scores are: Player ${playerScore} - ${computerScore} Computer`)
+    } else if (playerChoice == "paper" && computerChoice == "scissors") {
+        computerScore++
+        console.log(`You chose ${playerChoice}!`)
+        console.log(`The computer chose ${computerChoice}!`)
+        console.log(computerWinMessage);
+        console.log(`The scores are: Player ${playerScore} - ${computerScore} Computer`)
+    } else if (playerChoice == "scissors" && computerChoice == "rock") {
+        computerScore++
+        console.log(`You chose ${playerChoice}!`)
+        console.log(`The computer chose ${computerChoice}!`)
+        console.log(computerWinMessage);
+        console.log(`The scores are: Player ${playerScore} - ${computerScore} Computer`)
+    } else if (playerChoice == "scissors" && computerChoice == "paper") {
+        playerScoreScore++
+        console.log(`You chose ${playerChoice}!`)
+        console.log(`The computer chose ${computerChoice}!`)
+        console.log(playerWinMessageWinMessage);
+        console.log(`The scores are: Player ${playerScore} - ${computerScore} Computer`)
+    } else {
+        console.log("Hmm, something's wrong...")
+    }
+}
+
+// let i = 0
+
+// while (i <= 5) {
+//     playRound(getPlayerChoice(), getComputerChoice());
+//     i++
+// }
+
