@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    let randomNum = Math.floor(Math.random() * 3)
+    let randomNum = Math.floor(Math.random() * 3);
 
     if (randomNum == 0) {
         return "rock"
@@ -9,3 +9,20 @@ function getComputerChoice() {
         return "scissors"
     }
 }
+
+function getPlayerChoice() {
+    while (true) {
+        let input = prompt("Please enter Rock, Paper, or Scissors").toLowerCase();
+
+        if (input != "rock" && input != "paper" && input != "scissors") {
+            alert("Invalid choice! Try again.")
+            continue
+        } else {
+            return input
+        }
+    }
+}
+
+let = playerChoice = getPlayerChoice()
+
+console.log(playerChoice)
