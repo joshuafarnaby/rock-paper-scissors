@@ -75,6 +75,30 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    let roundCount = 1;
+
+    while (roundCount <= 5) {
+        let playerChoice = getPlayerChoice();
+        let computerChoice = getComputerChoice();
+
+        playRound(playerChoice, computerChoice);
+
+        roundCount++
+    }
+
+    console.log("That's the end of the game!")
+    console.log(`The scores are: Player ${playerScore} - ${computerScore} Computer`)
+
+    if (playerScore > computerScore) {
+        console.log("Congratulations, Player! You beat the machine")
+    } else if (computerScore > playerScore) {
+        console.log("Bad luck, Player! Another win for the machines")
+    } else {
+        console.log("A draw! Rematch pending...")
+    }
+}
+
 // let i = 0
 
 // while (i <= 5) {
