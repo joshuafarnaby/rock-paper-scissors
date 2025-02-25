@@ -112,8 +112,6 @@ function playGame() {
     console.log("A draw! Rematch pending...");
   }
 }
-
-playGame();
 // let i = 0
 
 // while (i <= 5) {
