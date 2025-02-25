@@ -1,0 +1,72 @@
+@import url("style.css");
+
+.modal-background {
+  /* display: none;  */
+  position: fixed; /* positions element relative to viewport */
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 1; */
+}
+
+.modal {
+  background-color: var(--off-white);
+  border-radius: 6px;
+  padding: 16px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.modal > h2 {
+  font-size: 36px;
+  color: var(--dark-text);
+}
+
+.round-select-container {
+  display: flex;
+  gap: 75px;
+}
+
+.round-select-btn {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--dark-text);
+  background-color: var(--off-white);
+  font-size: 36px;
+  font-weight: thin;
+  color: var(--dark-text);
+  /* box-shadow: 2px 2px 5px #aaaaaa; */
+}
+
+/* .round-select-btn > img {
+  height: 125px;
+} */
+
+.round-select-btn:hover,
+.play-game-btn:hover {
+  box-shadow: 2px 2px 5px #aaaaaa;
+  cursor: pointer;
+}
+
+.round-select-btn.select {
+  color: var(--off-white);
+  background-color: var(--dark-text);
+  box-shadow: 2px 2px 5px #aaaaaa;
+}
+
+.play-game-btn {
+  font-size: 28px;
+  padding: 8px 0;
+  width: 50%;
+  border: 1px solid var(--dark-text);
+  background-color: var(--off-white);
+  border-radius: 6px;
+}
