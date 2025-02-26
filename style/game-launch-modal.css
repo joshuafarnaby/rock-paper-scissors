@@ -74,3 +74,14 @@
   background-color: var(--off-white);
   border-radius: 6px;
 }
+
+.play-game-btn.inactive {
+  border-color: #aaaaaa;
+  color: #aaaaaa;
+}
+
+.play-game-btn.inactive:hover {
+  text-decoration: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
