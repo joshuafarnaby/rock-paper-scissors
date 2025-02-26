@@ -62,9 +62,7 @@
 }
 
 .round-select-btn.select {
-  color: var(--off-white);
-  background-color: var(--dark-text);
-  box-shadow: 2px 2px 5px #aaaaaa;
+  text-decoration: underline;
 }
 
 .play-game-btn {
