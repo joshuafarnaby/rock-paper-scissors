@@ -15,6 +15,10 @@
   display: none; 
 }
 
+.modal-background.reveal {
+  display: flex;
+}
+
 .modal {
   background-color: var(--off-white);
   /* border-radius: 6px; */
