@@ -38,12 +38,13 @@
 .round-select-btn {
   padding: 4px 8px;
   border-radius: 6px;
-  border: 1px solid var(--dark-text);
+  /* border: 1px solid var(--dark-text); */
+  border: none;
   background-color: var(--off-white);
   font-size: 36px;
   font-weight: thin;
   color: var(--dark-text);
-  /* box-shadow: 2px 2px 5px #aaaaaa; */
+  /* box-shadow: 0px 0px 5px #aaaaaa; */
 }
 
 /* .round-select-btn > img {
@@ -52,8 +53,12 @@
 
 .round-select-btn:hover,
 .play-game-btn:hover {
-  box-shadow: 2px 2px 5px #aaaaaa;
   cursor: pointer;
+  text-decoration: underline;
+}
+
+.play-game-btn:hover {
+  box-shadow: 2px 2px 4px #aaaaaa;
 }
 
 .round-select-btn.select {
@@ -65,8 +70,9 @@
 .play-game-btn {
   font-size: 28px;
   padding: 8px 0;
-  width: 50%;
+  width: 100%;
   border: 1px solid var(--dark-text);
+  /* border: none; */
   background-color: var(--off-white);
   border-radius: 6px;
 }
