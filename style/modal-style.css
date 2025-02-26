@@ -1,0 +1,32 @@
+.modal-background {
+  position: fixed; /* positions element relative to viewport */
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--off-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 1; */
+}
+
+.modal-background.hidden {
+  display: none; 
+}
+
+.modal {
+  background-color: var(--off-white);
+  /* border-radius: 6px; */
+  padding: 16px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.modal > h2 {
+  font-size: 36px;
+  color: var(--dark-text);
+}

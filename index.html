@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/modal-style.css">
     <link rel="stylesheet" href="./style/game-launch-modal.css">
     <title>Rock, Paper, Scissors</title>
 </head>
@@ -19,7 +20,7 @@
     </div>
 
 
-    <div id="game-launch-container" class="modal-background">
+    <div id="game-launch-container" class="modal-background hidden">
         <div id="game-launch-modal" class="modal">
             <h2>Welcome! Select the number of rounds:</h2>
             <div id="round-select-container" class="round-select-container">
@@ -30,5 +31,7 @@
             <button id="play-game-btn" class="play-game-btn">Play Game</button>
         </div>
     </div>
+
+    <!-- <div id="round-result-container" class="modal-background hidden"></div> -->
 </body>
 </html>
