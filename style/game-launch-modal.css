@@ -6,17 +6,17 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--off-white);
   display: flex;
   justify-content: center;
   align-items: center;
   /* z-index: 1; */
-  display: none; 
+  /* display: none;  */
 }
 
 .modal {
   background-color: var(--off-white);
-  border-radius: 6px;
+  /* border-radius: 6px; */
   padding: 16px 22px;
   display: flex;
   flex-direction: column;
@@ -54,8 +54,13 @@
 .round-select-btn:hover,
 .play-game-btn:hover {
   cursor: pointer;
+}
+
+.round-select-btn:hover {
   text-decoration: underline;
 }
+
+
 
 .play-game-btn:hover {
   box-shadow: 2px 2px 4px #aaaaaa;
