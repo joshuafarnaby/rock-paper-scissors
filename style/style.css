@@ -20,6 +20,11 @@ body {
   background-color: var(--off-white);
 }
 
+h2 {
+  font-weight: 400;
+  font-size: 36px;
+}
+
 .score-container {
   font-size: 50px;
   margin-top: 25px;

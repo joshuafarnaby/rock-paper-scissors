@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/modal-style.css">
     <link rel="stylesheet" href="./style/game-launch-modal.css">
+    <link rel="stylesheet" href="./style/round-result-modal.css">
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
@@ -36,16 +37,16 @@
         <div id="round-result-modal" class="modal">
             <div class="choice-container">
                 <div>
-                    <h2>You chose <span id="player-choice-text">rock</span></h2>
+                    <h2>player chose <span id="player-choice-text">rock</span></h2>
                     <img src="./icons/hand-fist-solid.svg" alt="">
                 </div>
                 <div>
-                    <h2>The computer chose <span id="computer-choice-text">scissors</span></h2>
+                    <h2>computer chose <span id="computer-choice-text">scissors</span></h2>
                     <img src="./icons/hand-scissors-solid.svg" alt="">
                 </div>
             </div>
-            <h2>The winner of this round is the <span id="round-winner text">player!</span></h2>
-            <button id="next-round-btn">continue</button>
+            <h2>the winner of this round is the <span id="round-winner text">player</span>!</h2>
+            <button id="next-round-btn" class="next-round-btn">continue</button>
         </div>
     </div>
 </body>
