@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style/modal-style.css">
     <link rel="stylesheet" href="./style/game-launch-modal.css">
     <link rel="stylesheet" href="./style/round-result-modal.css">
+    <link rel="stylesheet" href="./style/game-over-modal.css">
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
         </div>
     </div>
 
-    <div id="round-result-container" class="modal-background reveal">
+    <div id="round-result-container" class="modal-background hidden">
         <div id="round-result-modal" class="modal">
             <div class="choice-container">
                 <div>
@@ -47,8 +48,22 @@
             </div>
             <h2>the winner of this round is the <span id="round-winner text">player</span>!</h2>
             <div class="quit-continue-btn-container">
-                <button id="next-round-btn" class="next-round-btn">quit game</button>
-                <button id="quit-btn" class="quit-btn">next round</button>
+                <button id="quit-btn" class="quit-btn">quit game</button>
+                <button id="next-round-btn" class="next-round-btn">next round</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-over-container" class="modal-background hidden">
+        <div id="game-over-modal" class="modal">
+            <h2>game over!</h2>
+            <h2>
+                player <span id="player-final">0</span> - <span id="computer-final">0</span> computer
+            </h2>
+            <h2>the winner is the <span id="winner">player</span>!</h2>
+            <div class="home-replay-btn-container">
+                <button id="home-btn" class="home-btn">home</button>
+                <button id="replay-btn" class="replay-btn">replay</button>
             </div>
         </div>
     </div>
