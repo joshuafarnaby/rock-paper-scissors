@@ -19,6 +19,9 @@ let currentRoundResult;
 let currentRound;
 let maxRounds;
 
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   let randomNum = Math.floor(Math.random() * 3);
 
@@ -84,6 +87,15 @@ function toggleGameLaunchModal() {
     gameLaunchModal.classList.remove("reveal");
     gameLaunchModal.classList.add("hidden");
   }
+}
+
+function resetGame() {
+  roundSelectBtns.forEach((btn) => btn.classList.remove("select"));
+  playGameBtn.classList.add("inactive");
+
+  currentRound = 1;
+  playerScore = 0;
+  computerScore = 0;
 }
 
 roundSelectBtns.forEach((btn) => {
