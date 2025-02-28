@@ -1,17 +1,20 @@
 const gameLaunchModal = document.querySelector("#game-launch-container");
-const roundResultModal = document.querySelector("#round-result-container");
 const roundSelectBtns = document.querySelectorAll(".round-select-btn");
 const playGameBtn = document.querySelector("#play-game-btn");
+
+const roundResultModal = document.querySelector("#round-result-container");
 
 const playerChoiceBtns = document.querySelectorAll(
   ".rps-select-container button"
 );
 
+const quitGameBtn = document.querySelector("#quit-btn");
+
 // let playerChoice;
 // let computerChoice;
 // let currentRoundResult;
 
-let currentRound = 1;
+let currentRound;
 let maxRounds;
 
 function getComputerChoice() {
@@ -71,6 +74,16 @@ function toggleResultModal() {
   }
 }
 
+function toggleGameLaunchModal() {
+  if (gameLaunchModal.classList.contains("hidden")) {
+    gameLaunchModal.classList.remove("hidden");
+    gameLaunchModal.classList.add("reveal");
+  } else {
+    gameLaunchModal.classList.remove("reveal");
+    gameLaunchModal.classList.add("hidden");
+  }
+}
+
 roundSelectBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     roundSelectBtns.forEach((btn) => btn.classList.remove("select"));
@@ -84,13 +97,11 @@ roundSelectBtns.forEach((btn) => {
 playGameBtn.addEventListener("click", (e) => {
   if (e.target.classList.contains("inactive")) return;
 
-  document.querySelector("#current-round").textContent =
-    currentRound.toString();
+  currentRound = 1;
 
-  if (gameLaunchModal.classList.contains("reveal")) {
-    gameLaunchModal.classList.remove("reveal");
-    gameLaunchModal.classList.add("hidden");
-  }
+  document.querySelector("#current-round").textContent = currentRound;
+
+  toggleGameLaunchModal();
 });
 
 playerChoiceBtns.forEach((btn) => {
@@ -99,13 +110,15 @@ playerChoiceBtns.forEach((btn) => {
     let computerChoice = getComputerChoice();
     let currentRoundResult = getRoundResult(playerChoice, computerChoice);
 
-    console.log(playerChoice);
-    console.log(computerChoice);
-    console.log(currentRoundResult);
-
     updateResultModal(playerChoice, computerChoice, currentRoundResult);
     toggleResultModal();
   });
+});
+
+quitGameBtn.addEventListener("click", (e) => {
+  toggleResultModal();
+  toggleGameLaunchModal();
+  resetGame();
 });
 
 // let playerScore = 0;
