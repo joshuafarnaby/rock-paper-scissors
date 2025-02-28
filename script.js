@@ -52,8 +52,6 @@ function updateResultModal(playerChoice, computerChoice, currentRoundResult) {
     "#computer-choice-img"
   ).src = `./icons/${computerChoice}.svg`;
 
-  // document.querySelector("#round-count").textContent = currentRound.toString();
-
   if (currentRoundResult == "draw") {
     document.querySelector("#round-winner-text").textContent = "it's a draw!";
   } else {
@@ -78,11 +76,16 @@ roundSelectBtns.forEach((btn) => {
     roundSelectBtns.forEach((btn) => btn.classList.remove("select"));
     e.target.classList.add("select");
     playGameBtn.classList.remove("inactive");
+
+    document.querySelector("#total-rounds").textContent = e.target.value;
   });
 });
 
 playGameBtn.addEventListener("click", (e) => {
   if (e.target.classList.contains("inactive")) return;
+
+  document.querySelector("#current-round").textContent =
+    currentRound.toString();
 
   if (gameLaunchModal.classList.contains("reveal")) {
     gameLaunchModal.classList.remove("reveal");
