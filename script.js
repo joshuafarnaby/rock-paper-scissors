@@ -1,6 +1,77 @@
 const gameLaunchModal = document.querySelector("#game-launch-container");
+const roundResultModal = document.querySelector("#round-result-container");
 const roundSelectBtns = document.querySelectorAll(".round-select-btn");
 const playGameBtn = document.querySelector("#play-game-btn");
+
+const playerChoiceBtns = document.querySelectorAll(
+  ".rps-select-container button"
+);
+
+// let playerChoice;
+// let computerChoice;
+// let currentRoundResult;
+
+let currentRound = 1;
+let maxRounds;
+
+function getComputerChoice() {
+  let randomNum = Math.floor(Math.random() * 3);
+
+  if (randomNum == 0) {
+    return "rock";
+  } else if (randomNum == 1) {
+    return "paper";
+  } else {
+    return "scissors";
+  }
+}
+
+function getRoundResult(playerChoice, computerChoice) {
+  if (playerChoice == computerChoice) return "draw";
+
+  if (playerChoice == "rock") {
+    if (computerChoice == "paper") return "computer";
+    if (computerChoice == "scissors") return "player";
+  } else if (playerChoice == "paper") {
+    if (computerChoice == "rock") return "player";
+    if (computerChoice == "scissors") return "computer";
+  } else {
+    if (computerChoice == "rock") return "computer";
+    if (computerChoice == "paper") return "player";
+  }
+}
+
+function updateResultModal(playerChoice, computerChoice, currentRoundResult) {
+  document.querySelector("#player-choice-text").textContent = playerChoice;
+  document.querySelector("#computer-choice-text").textContent = computerChoice;
+
+  document.querySelector(
+    "#player-choice-img"
+  ).src = `./icons/${playerChoice}.svg`;
+  document.querySelector(
+    "#computer-choice-img"
+  ).src = `./icons/${computerChoice}.svg`;
+
+  // document.querySelector("#round-count").textContent = currentRound.toString();
+
+  if (currentRoundResult == "draw") {
+    document.querySelector("#round-winner-text").textContent = "it's a draw!";
+  } else {
+    document.querySelector(
+      "#round-winner-text"
+    ).textContent = `the ${currentRoundResult} wins this round!`;
+  }
+}
+
+function toggleResultModal() {
+  if (roundResultModal.classList.contains("hidden")) {
+    roundResultModal.classList.remove("hidden");
+    roundResultModal.classList.add("reveal");
+  } else {
+    roundResultModal.classList.remove("reveal");
+    roundResultModal.classList.add("hidden");
+  }
+}
 
 roundSelectBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
@@ -19,20 +90,23 @@ playGameBtn.addEventListener("click", (e) => {
   }
 });
 
+playerChoiceBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    let playerChoice = e.target.parentElement.value;
+    let computerChoice = getComputerChoice();
+    let currentRoundResult = getRoundResult(playerChoice, computerChoice);
+
+    console.log(playerChoice);
+    console.log(computerChoice);
+    console.log(currentRoundResult);
+
+    updateResultModal(playerChoice, computerChoice, currentRoundResult);
+    toggleResultModal();
+  });
+});
+
 // let playerScore = 0;
 // let computerScore = 0;
-
-// function getComputerChoice() {
-//   let randomNum = Math.floor(Math.random() * 3);
-
-//   if (randomNum == 0) {
-//     return "rock";
-//   } else if (randomNum == 1) {
-//     return "paper";
-//   } else {
-//     return "scissors";
-//   }
-// }
 
 // function getPlayerChoice() {
 //   while (true) {
