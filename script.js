@@ -9,11 +9,13 @@ const playerChoiceBtns = document.querySelectorAll(
 );
 
 const quitGameBtn = document.querySelector("#quit-btn");
+const nextRoundBtn = document.querySelector("#next-round-btn");
 
 // let playerChoice;
 // let computerChoice;
 // let currentRoundResult;
 
+let currentRoundResult;
 let currentRound;
 let maxRounds;
 
@@ -108,17 +110,21 @@ playerChoiceBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     let playerChoice = e.target.parentElement.value;
     let computerChoice = getComputerChoice();
-    let currentRoundResult = getRoundResult(playerChoice, computerChoice);
+    currentRoundResult = getRoundResult(playerChoice, computerChoice);
 
     updateResultModal(playerChoice, computerChoice, currentRoundResult);
     toggleResultModal();
   });
 });
 
-quitGameBtn.addEventListener("click", (e) => {
+quitGameBtn.addEventListener("click", () => {
   toggleResultModal();
   toggleGameLaunchModal();
   resetGame();
+});
+
+nextRoundBtn.addEventListener("click", () => {
+  if (currentRoundResult == "draw") toggleResultModal();
 });
 
 // let playerScore = 0;
