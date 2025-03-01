@@ -1,15 +1,16 @@
 const gameLaunchModal = document.querySelector("#game-launch-container");
+const roundResultModal = document.querySelector("#round-result-container");
+const gameOverModal = document.querySelector("#game-over-container");
+
 const roundSelectBtns = document.querySelectorAll(".round-select-btn");
 const playGameBtn = document.querySelector("#play-game-btn");
-
-const roundResultModal = document.querySelector("#round-result-container");
 
 const playerChoiceBtns = document.querySelectorAll(
   ".rps-select-container button"
 );
 
 const quitGameBtn = document.querySelector("#quit-btn");
-const nextRoundBtn = document.querySelector("#next-round-btn");
+const continueBtn = document.querySelector("#continue-btn");
 
 let currentRoundResult;
 let currentRound;
@@ -85,6 +86,16 @@ function toggleGameLaunchModal() {
   }
 }
 
+function toggleGameOverModal() {
+  if (gameOverModal.classList.contains("hidden")) {
+    gameOverModal.classList.remove("hidden");
+    gameOverModal.classList.add("reveal");
+  } else {
+    gameOverModal.classList.remove("reveal");
+    gameOverModal.classList.add("hidden");
+  }
+}
+
 function resetGame() {
   roundSelectBtns.forEach((btn) => btn.classList.remove("select"));
   playGameBtn.classList.add("inactive");
@@ -101,6 +112,7 @@ roundSelectBtns.forEach((btn) => {
     playGameBtn.classList.remove("inactive");
 
     document.querySelector("#total-rounds").textContent = e.target.value;
+    maxRounds = e.target.value;
   });
 });
 
@@ -131,7 +143,7 @@ quitGameBtn.addEventListener("click", () => {
   resetGame();
 });
 
-nextRoundBtn.addEventListener("click", () => {
+continueBtn.addEventListener("click", () => {
   if (currentRoundResult == "draw") {
     toggleResultModal();
     return;
@@ -145,9 +157,24 @@ nextRoundBtn.addEventListener("click", () => {
     document.querySelector("#computer-score").textContent = computerScore;
   }
 
-  currentRound += 1;
-  document.querySelector("#current-round").textContent = currentRound;
-  toggleResultModal();
+  if (currentRound == maxRounds) {
+    toggleGameOverModal();
+    const winnerText = document.querySelector("#winner");
+
+    document.querySelector("#player-final").textContent = playerScore;
+    document.querySelector("#computer-final").textContent = computerScore;
+
+    winnerText.textContent =
+      playerScore > computerScore ? "player" : "computer";
+  } else {
+    currentRound += 1;
+    document.querySelector("#current-round").textContent = currentRound;
+    toggleResultModal();
+  }
+
+  // currentRound += 1;
+  // document.querySelector("#current-round").textContent = currentRound;
+  // toggleResultModal();
 });
 
 // let playerScore = 0;
