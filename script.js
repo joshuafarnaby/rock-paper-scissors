@@ -9,6 +9,7 @@ const playerChoiceBtns = document.querySelectorAll(
   ".rps-select-container button"
 );
 
+const homeBtn = document.querySelector("#home-btn");
 const quitGameBtn = document.querySelector("#quit-btn");
 const continueBtn = document.querySelector("#continue-btn");
 
@@ -143,6 +144,13 @@ quitGameBtn.addEventListener("click", () => {
   resetGame();
 });
 
+homeBtn.addEventListener("click", () => {
+  toggleGameOverModal();
+  // toggleResultModal()
+  toggleGameLaunchModal();
+  resetGame();
+});
+
 continueBtn.addEventListener("click", () => {
   if (currentRoundResult == "draw") {
     toggleResultModal();
@@ -158,6 +166,7 @@ continueBtn.addEventListener("click", () => {
   }
 
   if (currentRound == maxRounds) {
+    toggleResultModal();
     toggleGameOverModal();
     const winnerText = document.querySelector("#winner");
 
